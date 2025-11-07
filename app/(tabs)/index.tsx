@@ -60,7 +60,7 @@ export default function HomeScreen() {
       if (response.ok) {
         setUploadResponse(data);
         setUploadProgress(100);
-        console.log('Transkripsiyon sonucu:', uploadResponse);
+        console.log('Transkripsiyon sonucu:', data);
       } else {
         throw new Error(data.message || 'Yükleme başarısız');
       }
