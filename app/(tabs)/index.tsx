@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, TouchableOpacity, View, Text, ScrollView, ActivityIndicator } from 'react-native';
-import * as DocumentPicker from 'expo-document-picker';
 import { ThemedView } from '@/components/themed-view';
+import * as DocumentPicker from 'expo-document-picker';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const API_URL = 'http://192.168.1.225:8000/transcribe';
+const API_URL = 'http://10.22.51.5:8000/transcribe';
 
 export default function HomeScreen() {
   const [selectedFile, setSelectedFile] = useState<DocumentPicker.DocumentPickerAsset | null>(null);
@@ -46,7 +46,7 @@ export default function HomeScreen() {
       };
 
       formData.append('audio', fileToUpload);
-
+      console.log(API_URL)
       const response = await fetch(API_URL, {
         method: 'POST',
         body: formData,
